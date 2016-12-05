@@ -9,7 +9,7 @@
 
 -- Import predefined constants
 local lm= require( "Exec/Lib/LMGlobal");
-
+local config= require( "Exec/MyDemo/00-Config");
 -- Log start
 --lm.log( "LMExec Script MyDemo Data Import from TXT");
 
@@ -18,8 +18,8 @@ inputParams= {
 	pathNameDataSrc= "Exec/MyData/ProductTransactions_Oct_ANSI.txt",		-- path and file name to source text file	
 	pathNameDataDest= "Exec/MyData/ProductTransactions.DB.mdb",	-- path and file name of the database to create
 	pathNameMetabase= "Exec/MyData/ProductTransactions.LM.mdb", -- path and file name of the metabase to create
-	tableName= "ProdTrans",											-- database table name to be created 
-	dsnBase= "Exec MyDemo Transactions",						-- base ODBC DataSourceName for both metabase and data
+	tableName= config.tableName,											-- database table name to be created 
+	dsnBase= config.dnsBase,						-- base ODBC DataSourceName for both metabase and data
 	pathNameBkup= "Exec/MyData/ProductTransactions.LM.mdb_bkup.mdb"
 };
 
@@ -44,7 +44,7 @@ lm.metabase.createAndAssociateWithDataMDB({
 -- Open a metabase 
 lm.metabase.open({
 	-- *** Only 1 word allowed? LM Products Transactions MB is not a valid ODBC DataSourceName
-	dataSourceName= "LM "..inputParams.dsnBase.." MB"
+	dataSourceName= config.dataSourceName
 });		-- ODBC DataSourceName
 
 -- Since it is the first this metabase is opened, we need to 

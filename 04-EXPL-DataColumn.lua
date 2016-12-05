@@ -6,18 +6,19 @@
 
 -- Import predefined constants
 local lm= require( "Exec/Lib/LMGlobal");
+local config= require( "Exec/MyDemo/00-Config");
 
 -- Log start
 lm.log( "LMExec Script Demo Column manipulation");
 
 	-- Open a metabase 
 	lm.metabase.open({
-			dataSourceName= "LM Exec MyDemo Transactions MB"});		-- ODBC DataSourceName
+			dataSourceName= config.dataSourceName});		-- ODBC DataSourceName
 
 -- DataTable and DataColumn
 
 	-- Get dataTable
-	local dataTable= lm.explore.findDataTable({ name= "ProdTrans"});
+	local dataTable= lm.explore.findDataTable({ name= config.tableName});
 
 	-- Get dataColumn
 	local dataColumn= dataTable.findDataColumn({ name= "item_price"});

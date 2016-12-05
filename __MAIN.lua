@@ -22,5 +22,6 @@ dofile(scriptFolder.."14-PREP-Category-item_quantity-efs.lua");
 dofile(scriptFolder.."15-PREP-Category-transaction_basket_cnt.lua");
 dofile(scriptFolder.."16-PREP-Category-transaction_date_time.lua");
 dofile(scriptFolder.."17-PREP-Category-transaction_total_price.lua");
+dofile(scriptFolder.."18-TASK-TaskGroups.lua");
 
 lm.logInfo( "Procedure ended");

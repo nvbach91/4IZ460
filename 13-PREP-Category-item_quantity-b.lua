@@ -6,19 +6,20 @@
 
 -- Import predefined constants
 local lm= require( "Exec/Lib/LMGlobal");
+local config= require( "Exec/MyDemo/00-Config");
 
-local utils= require( "Exec/MyDemo/my-procedure/00-Utils");
+local utils= require( "Exec/MyDemo/00-Utils");
 
 -- Log start
 -- lm.log( "LMExec Script MyDemo Category manipulation");
 
 -- Open a metabase
 lm.metabase:open({ 
-	dataSourceName= "LM Exec MyDemo Transactions MB" -- ODBC DataSourceName
+	dataSourceName= config.dataSourceName -- ODBC DataSourceName
 });
 
 -- Initialisation
-local dataTableName= "ProdTrans";
+local dataTableName= config.tableName;
 local columnName= "item_quantity";
 local attributeGroupName= "Quantity";
 

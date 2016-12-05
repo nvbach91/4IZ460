@@ -5,13 +5,14 @@
 
 -- Import predefined constants
 local lm= require( "Exec/Lib/LMGlobal");
+local config= require( "Exec/MyDemo/00-Config");
 
 -- Log start
 --lm.log( "LMExec Script MyDemo AttributeGroup manipulation");
 
 -- Open a metabase 
 lm.metabase:open({ 
-	dataSourceName= "LM Exec MyDemo Transactions MB"});		-- ODBC DataSourceName
+	dataSourceName= config.dataSourceName});		-- ODBC DataSourceName
 
 -- Get Root attributeGroup
 local rootAttributeGroup= lm.prepro:getRootAttributeGroup();

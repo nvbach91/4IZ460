@@ -5,13 +5,14 @@
 
 -- Import predefined constants
 local lm= require( "Exec/Lib/LMGlobal");
+local config= require( "Exec/MyDemo/00-Config");
 
 -- Log start
 --lm.log( "LMExec Script Demo TaskGroup manipulation");
 
 -- Open a metabase 
 lm.metabase:open({
-	dataSourceName= "LM Exec MyDemo Transactions MB" -- ODBC DataSourceName
+	dataSourceName= config.dataSourceName -- ODBC DataSourceName
 });
 
 local taskGroupNames= {
@@ -32,7 +33,7 @@ for i, taskGroupName in ipairs( taskGroupNames) do
 		lm.tasks.TaskGroup( {
 			name= taskGroupName
 		});
-	else 
+	--else 
 		--lm.log( "task group "..taskGroupName.." already exists");
 	end;
 end;
